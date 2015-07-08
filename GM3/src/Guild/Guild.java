@@ -90,6 +90,8 @@ public class Guild extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        evtCadastra = new javax.swing.JButton();
+        listaEvento = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -336,6 +338,11 @@ public class Guild extends javax.swing.JFrame {
         evtTam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5", "10", "20", "25" }));
 
         jButton2.setText("Gera grupo q_q");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         evtGenGurizada.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5", "10", "20", "25" }));
 
@@ -346,6 +353,20 @@ public class Guild extends javax.swing.JFrame {
         jLabel16.setText("Quant Heal");
 
         jLabel17.setText("Quant Dps");
+
+        evtCadastra.setText("Cadastra evento");
+        evtCadastra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                evtCadastraActionPerformed(evt);
+            }
+        });
+
+        listaEvento.setText("Lista Grupo");
+        listaEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaEventoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
         jLayeredPane3.setLayout(jLayeredPane3Layout);
@@ -379,9 +400,15 @@ public class Guild extends javax.swing.JFrame {
                         .addComponent(evtGenHeal, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(102, 102, 102))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
+                .addComponent(evtCadastra)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(86, 86, 86))
+            .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                .addGap(268, 268, 268)
+                .addComponent(listaEvento)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane3Layout.setVerticalGroup(
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -421,9 +448,17 @@ public class Guild extends javax.swing.JFrame {
                         .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(evtGenDps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(67, 67, 67))
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(33, 33, 33)
+                        .addComponent(listaEvento)
+                        .addContainerGap())
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(evtCadastra)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jLayeredPane3.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -442,6 +477,8 @@ public class Guild extends javax.swing.JFrame {
         jLayeredPane3.setLayer(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel16, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel17, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(evtCadastra, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(listaEvento, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
@@ -497,6 +534,18 @@ public class Guild extends javax.swing.JFrame {
     private void addPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPerActionPerformed
         controlador.cadastroPersonagem();
     }//GEN-LAST:event_addPerActionPerformed
+
+    private void evtCadastraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evtCadastraActionPerformed
+        controlador.cadastroEvento();
+    }//GEN-LAST:event_evtCadastraActionPerformed
+
+    private void listaEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaEventoActionPerformed
+        controlador.listaEventos();
+    }//GEN-LAST:event_listaEventoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       controlador.geraGrupo();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -665,6 +714,7 @@ public class Guild extends javax.swing.JFrame {
     private javax.swing.JCheckBox Sexta;
     private javax.swing.JCheckBox Terca;
     private javax.swing.JButton addPer;
+    private javax.swing.JButton evtCadastra;
     private javax.swing.JComboBox evtDia;
     private javax.swing.JSpinner evtGenDps;
     private javax.swing.JComboBox evtGenGurizada;
@@ -698,6 +748,7 @@ public class Guild extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JButton listaEvento;
     private javax.swing.JComboBox perC;
     private javax.swing.JTextField perN;
     private javax.swing.JSpinner perNprf;

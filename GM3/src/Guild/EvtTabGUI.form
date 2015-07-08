@@ -100,16 +100,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Fechar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fecharTabActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="partEvt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Participantes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partEvtActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="removeEvt">
       <Properties>
         <Property name="text" type="java.lang.String" value="Remover"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeEvtActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

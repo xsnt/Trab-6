@@ -57,10 +57,25 @@ public class EvtTabGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabHue);
 
         fecharTab.setText("Fechar");
+        fecharTab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fecharTabActionPerformed(evt);
+            }
+        });
 
         partEvt.setText("Participantes");
+        partEvt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partEvtActionPerformed(evt);
+            }
+        });
 
         removeEvt.setText("Remover");
+        removeEvt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeEvtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,6 +114,18 @@ public class EvtTabGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void fecharTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fecharTabActionPerformed
+      this.setVisible(false);
+    }//GEN-LAST:event_fecharTabActionPerformed
+
+    private void partEvtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partEvtActionPerformed
+        controlador.listaPersonagens();
+    }//GEN-LAST:event_partEvtActionPerformed
+
+    private void removeEvtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEvtActionPerformed
+       controlador.removeEvt();
+    }//GEN-LAST:event_removeEvtActionPerformed
 
     /**
      * @param args the command line arguments

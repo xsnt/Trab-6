@@ -41,7 +41,8 @@ public class PerTabGUI extends javax.swing.JFrame {
 
         tabPer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
                 "Nome", "Raça", "Nivel", "Classe", "Role", "Profissao", "Lvl Profissao", "Dias Disp", "Turnos Disp"

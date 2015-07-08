@@ -40,12 +40,22 @@ public class PerTabControlador {
         for (Personagem p : Personagem.p) {
             Personagem t = (Personagem) p;
             dtm.addRow(new Object [] {t.getPersonagem(), t.getRaca(), t.getClasse(), t.getEspecialidade(), t.getLvlPersonagem(),
-                t.getProf().getProf(), t.getProf().getLevel(), t.getTurno()});
+                t.getProf().getProf(), t.getProf().getLevel(),arrayToStr(t), t.getTurno()});
         }
         
         this.tabela.setModel(dtm);
     }
     
+    private String arrayToStr(Personagem p){
+        String dias;
+        
+        dias = p.getDiasDisp().get(0);
+        for(int i = 1; i < p.getDiasDisp().size(); i++){
+            dias += ", " + p.getDiasDisp().get(i);
+        }
+        
+        return dias;
+    }
     //Responsável por listar o Array de personagens de um grupo
     public void listaPersonagens(ArrayList<Personagem> p){
         DefaultTableModel dtm = new DefaultTableModel(new Object [] []{ }, new String [] {

@@ -36,7 +36,7 @@ public class ControladorGuild {
         this.grupoGerado = null;
     }
     
-    //Joga o boneco pra dentro
+    //Joga o boneco pra dentro 
     public void cadastroPersonagem(){
         String personagem = (String) view.getPerN().getText();
         String turno = (String) view.getTurno().getSelectedItem();
@@ -47,7 +47,13 @@ public class ControladorGuild {
         int lvlPersonagem = (int) view.getPerNv().getValue();
         int lvlProfissao = (int) view.getPerNprf().getValue();
         ArrayList<String> dias = pegaDias();
-  
+        
+        //Pega a info dos baratos e joga pro outro barato
+        if(verificaInfoCadastro(personagem, turno, dias)){//Sem isso ele buga de um jeito inimaginavel
+        Personagem ps = new Personagem(personagem, raca, classe, espec, lvlPersonagem, profissao, lvlProfissao, dias, turno);
+        Personagem.p.add(ps);
+        view.resetCadastro();
+        }
     }
     //Transforma os checkbox em um Array de dias
     private ArrayList<String> pegaDias(){
@@ -189,33 +195,33 @@ public class ControladorGuild {
 
     //Transforma uma String de dias em um ArrayList de dias
     private ArrayList<String> strToArray(String dias){
-        ArrayList<String> disp = new ArrayList<>();
+        ArrayList<String> dispo = new ArrayList<>();
         
         
         if(dias.contains("Dom")){
-            disp.add("Dom");
+            dispo.add("Dom");
         }
         if(dias.contains("Seg")){
-            disp.add("Seg");
+            dispo.add("Seg");
         }
         if(dias.contains("Ter")){
-            disp.add("Ter");
+            dispo.add("Ter");
         }
         if(dias.contains("Qua")){
-            disp.add("Qua");
+            dispo.add("Qua");
         }
         if(dias.contains("Qui")){
-            disp.add("Qui");
+            dispo.add("Qui");
         }
         if(dias.contains("Sex")){
-            disp.add("Sex");
+            dispo.add("Sex");
         }
         if(dias.contains("Sab")){
-            disp.add("Sab");
+            dispo.add("Sab");
         }
         
         
-        return disp;
+        return dispo;
     }
     
     //verifica os dados de cadastro do evento
@@ -242,5 +248,25 @@ public class ControladorGuild {
             }
         }
         return true;
+    }
+
+    private boolean verificaInfoCadastro(String personagem, String turno, ArrayList<String> dias) {
+
+        if(personagem.isEmpty()){
+            JOptionPane.showMessageDialog(null, "personagem vazio");
+            return false;
+        }
+        
+        if(dias == null){
+            JOptionPane.showMessageDialog(null, "dia vazio");
+            return false;
+        }
+        
+        if(turno.isEmpty()){
+            JOptionPane.showMessageDialog(null, "turno vazio");
+            return false;
+        }
+        return true;
+        // se tudo der certo retorna true
     }
 }
